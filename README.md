@@ -10,6 +10,25 @@ A starting point for Neovim that is:
 
 **NOT** a Neovim distribution, but instead a starting point for your configuration.
 
+## Sanguine Theme Integration
+
+This fork includes comprehensive theming for the [HyDE Sanguine](https://github.com/prasanthrangan/hyprdots) color scheme - a dark maroon and gold aesthetic.
+
+**Features:**
+- Transparent backgrounds for seamless terminal integration
+- 80+ themed highlight groups covering all UI elements
+- Custom tabline with clean tab names (e.g., "1 zsh", "2 init.lua")
+- Sanguine-colored statusline, completion menus, diagnostics, and borders
+- Terminal colors remapped to maroon/gold palette (no cyan/blue clashes)
+
+**Color Palette:**
+- Background: `#120a0a` (very dark maroon)
+- Primary: `#a52a2a` (maroon)
+- Accent: `#d4a753` (gold)
+- Variants: burgundy, dark red, muted gold, rose gold
+
+All theming is contained in the colorscheme setup section of `init.lua` and can be easily modified or removed.
+
 ## Installation
 
 ### Install Neovim
@@ -119,6 +138,38 @@ examples of adding popularly requested plugins.
 ### Getting Started
 
 [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
+
+### Keybindings
+
+Kickstart uses **which-key** to help you discover keybindings. Simply press `<Space>` (the leader key) and wait a moment - a popup will appear showing all available keybindings organized by category.
+
+#### Discovering Keybindings
+
+- Press `<Space>` and wait → See all leader-key commands
+- Press `<Space>s` → See all **[S]earch** commands (files, grep, help, etc.)
+- Press `<Space>t` → See all **[T]oggle** commands
+- Press `<Space>h` → See all Git **[H]unk** commands
+
+#### Essential Keybindings
+
+| Key | Action | Description |
+|-----|--------|-------------|
+| `<Space>sf` | **[S]earch [F]iles** | Find files in your project |
+| `<Space>sg` | **[S]earch by [G]rep** | Search text across all files |
+| `<Space>sh` | **[S]earch [H]elp** | Search Neovim help documentation |
+| `<Space><Space>` | Find existing buffers | Switch between open files |
+| `<Space>/` | Fuzzy search in current buffer | Search within the current file |
+| `gd` | **[G]oto [D]efinition** | Jump to where a symbol is defined |
+| `grr` | **[G]oto [R]eferences** | Find all references to a symbol |
+| `grn` | **[R]e[n]ame** | Rename a symbol across the project |
+| `K` | Hover Documentation | Show documentation for symbol under cursor |
+| `<C-h/j/k/l>` | Navigate windows | Move between splits |
+
+#### Customizing Keybindings
+
+All keybindings are defined in `init.lua`. Search for `vim.keymap.set` to find and modify them.
+
+For more keybindings, press `?` in the which-key popup or explore the `init.lua` file.
 
 ### FAQ
 

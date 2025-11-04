@@ -940,6 +940,51 @@ require('lazy').setup({
       vim.api.nvim_set_hl(0, 'TabLineSel', { fg = sanguine.fg, bg = sanguine.maroon, bold = true })
       vim.api.nvim_set_hl(0, 'TabLineFill', { bg = sanguine.bg })
 
+      -- Custom tabline function for cleaner tab names
+      function _G.custom_tabline()
+        local s = ''
+        local current_tab = vim.fn.tabpagenr()
+
+        for i = 1, vim.fn.tabpagenr '$' do
+          local winnr = vim.fn.tabpagewinnr(i)
+          local bufnr = vim.fn.tabpagebuflist(i)[winnr]
+          local bufname = vim.fn.bufname(bufnr)
+          local buftype = vim.fn.getbufvar(bufnr, '&buftype')
+
+          -- Set highlight
+          s = s .. (i == current_tab and '%#TabLineSel#' or '%#TabLine#')
+
+          -- Add tab number
+          s = s .. ' ' .. i .. ' '
+
+          -- Determine display name
+          local name
+          if buftype == 'terminal' then
+            -- For terminals, just show "zsh" or the shell name
+            local term_name = vim.fn.fnamemodify(bufname, ':t:r')
+            name = term_name ~= '' and term_name or 'term'
+          elseif bufname == '' then
+            name = '[No Name]'
+          else
+            -- For files, show just the filename
+            name = vim.fn.fnamemodify(bufname, ':t')
+          end
+
+          -- Add modified indicator
+          if vim.fn.getbufvar(bufnr, '&modified') == 1 then
+            name = name .. ' [+]'
+          end
+
+          s = s .. name .. ' '
+        end
+
+        -- Fill the rest with TabLineFill
+        s = s .. '%#TabLineFill#'
+        return s
+      end
+
+      vim.o.tabline = '%!v:lua.custom_tabline()'
+
       -- Window bar colors
       vim.api.nvim_set_hl(0, 'WinBar', { fg = sanguine.gold, bg = 'none', bold = true })
       vim.api.nvim_set_hl(0, 'WinBarNC', { fg = sanguine.burgundy, bg = 'none' })

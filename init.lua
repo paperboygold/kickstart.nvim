@@ -928,6 +928,8 @@ require('lazy').setup({
       vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', { fg = sanguine.gold, bg = sanguine.darker_burgundy, bold = true })
       vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { fg = sanguine.fg, bg = sanguine.very_dark_red, bold = true })
       vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { fg = sanguine.gold, bg = sanguine.very_dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeTerminal', { fg = sanguine.fg, bg = sanguine.dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeOther', { fg = sanguine.fg, bg = sanguine.burgundy, bold = true })
       vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = sanguine.burgundy, bg = sanguine.bg })
       vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', { fg = sanguine.fg, bg = sanguine.darker_maroon })
       vim.api.nvim_set_hl(0, 'MiniStatuslineFileinfo', { fg = sanguine.burgundy, bg = sanguine.bg })
@@ -1059,6 +1061,24 @@ require('lazy').setup({
 
       -- Todo Comments (if using todo-comments.nvim)
       vim.api.nvim_set_hl(0, 'Todo', { fg = sanguine.bg, bg = sanguine.gold, bold = true })
+
+      -- Terminal colors (override cyan/blue with Sanguine palette)
+      vim.g.terminal_color_0 = sanguine.bg -- Black
+      vim.g.terminal_color_1 = sanguine.dark_red -- Red
+      vim.g.terminal_color_2 = sanguine.muted_gold -- Green (repurposed as muted gold)
+      vim.g.terminal_color_3 = sanguine.gold -- Yellow (gold)
+      vim.g.terminal_color_4 = sanguine.burgundy -- Blue (repurposed as burgundy)
+      vim.g.terminal_color_5 = sanguine.maroon -- Magenta (repurposed as maroon)
+      vim.g.terminal_color_6 = sanguine.rose_gold -- Cyan (repurposed as rose gold)
+      vim.g.terminal_color_7 = sanguine.fg -- White
+      vim.g.terminal_color_8 = sanguine.darker_burgundy -- Bright Black
+      vim.g.terminal_color_9 = '#c73737' -- Bright Red
+      vim.g.terminal_color_10 = sanguine.gold -- Bright Green (gold)
+      vim.g.terminal_color_11 = '#e0b969' -- Bright Yellow (brighter gold)
+      vim.g.terminal_color_12 = sanguine.maroon -- Bright Blue (maroon)
+      vim.g.terminal_color_13 = '#8a3844' -- Bright Magenta (brighter burgundy)
+      vim.g.terminal_color_14 = sanguine.gold -- Bright Cyan (gold instead of cyan)
+      vim.g.terminal_color_15 = '#ffffff' -- Bright White
     end,
   },
 

@@ -886,8 +886,11 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('tokyonight').setup {
+        transparent = true, -- Enable transparent background
         styles = {
           comments = { italic = false }, -- Disable italics in comments
+          sidebars = 'transparent', -- Transparent sidebars
+          floats = 'transparent', -- Transparent floating windows
         },
       }
 
@@ -895,6 +898,53 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
+
+      -- Additional transparency settings to work with Hyde theme
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'none' })
+
+      -- Sanguine theme colors for statusline and tabline
+      local sanguine = {
+        bg = '#120a0a',
+        fg = '#fcf8f8',
+        maroon = '#a52a2a',
+        gold = '#d4a753',
+        dark_red = '#8b0000',
+        burgundy = '#722f37',
+        rose_gold = '#daa520',
+        -- Darker, more subtle statusline colors
+        very_dark_red = '#3d0000',
+        darker_burgundy = '#2d1419',
+        darker_maroon = '#4a1515',
+        muted_gold = '#6b5830',
+      }
+
+      -- Statusline colors (mini.statusline) - much darker and subtle
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeNormal', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', { fg = sanguine.fg, bg = sanguine.muted_gold, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeVisual', { fg = sanguine.gold, bg = sanguine.darker_burgundy, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeReplace', { fg = sanguine.fg, bg = sanguine.very_dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineModeCommand', { fg = sanguine.gold, bg = sanguine.very_dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineDevinfo', { fg = sanguine.burgundy, bg = sanguine.bg })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineFilename', { fg = sanguine.fg, bg = sanguine.darker_maroon })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineFileinfo', { fg = sanguine.burgundy, bg = sanguine.bg })
+      vim.api.nvim_set_hl(0, 'MiniStatuslineInactive', { fg = sanguine.burgundy, bg = sanguine.bg })
+
+      -- Tabline colors
+      vim.api.nvim_set_hl(0, 'TabLine', { fg = sanguine.burgundy, bg = sanguine.bg })
+      vim.api.nvim_set_hl(0, 'TabLineSel', { fg = sanguine.fg, bg = sanguine.maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'TabLineFill', { bg = sanguine.bg })
+
+      -- Window bar colors
+      vim.api.nvim_set_hl(0, 'WinBar', { fg = sanguine.gold, bg = 'none', bold = true })
+      vim.api.nvim_set_hl(0, 'WinBarNC', { fg = sanguine.burgundy, bg = 'none' })
+
+      -- Terminal statusline colors
+      vim.api.nvim_set_hl(0, 'StatusLineTerm', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'StatusLineTermNC', { fg = sanguine.burgundy, bg = sanguine.bg })
     end,
   },
 

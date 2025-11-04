@@ -945,6 +945,120 @@ require('lazy').setup({
       -- Terminal statusline colors
       vim.api.nvim_set_hl(0, 'StatusLineTerm', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
       vim.api.nvim_set_hl(0, 'StatusLineTermNC', { fg = sanguine.burgundy, bg = sanguine.bg })
+
+      -- PHASE 1: Critical UI Elements
+
+      -- Telescope (Fuzzy Finder)
+      vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = sanguine.maroon, bg = 'none' })
+      vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = sanguine.gold, bg = 'none' })
+      vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { fg = sanguine.maroon, bg = sanguine.very_dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { fg = sanguine.burgundy, bg = sanguine.very_dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'TelescopeSelection', { fg = sanguine.fg, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'TelescopeMatching', { fg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'TelescopeResultsComment', { fg = sanguine.burgundy })
+
+      -- Blink.cmp (Completion Menu)
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { fg = sanguine.maroon, bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection', { fg = sanguine.fg, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'BlinkCmpLabel', { fg = sanguine.fg })
+      vim.api.nvim_set_hl(0, 'BlinkCmpLabelMatch', { fg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'BlinkCmpLabelDeprecated', { fg = sanguine.burgundy, strikethrough = true })
+      vim.api.nvim_set_hl(0, 'BlinkCmpKindDefault', { fg = sanguine.burgundy })
+      vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { fg = sanguine.darker_burgundy, italic = true })
+      vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { fg = sanguine.maroon })
+
+      -- LSP Diagnostics
+      vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = sanguine.dark_red })
+      vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = sanguine.gold })
+      vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = sanguine.rose_gold })
+      vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = sanguine.burgundy })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextError', { fg = sanguine.dark_red, bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextWarn', { fg = sanguine.gold, bg = sanguine.darker_burgundy })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextInfo', { fg = sanguine.muted_gold, bg = sanguine.darker_maroon })
+      vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextHint', { fg = sanguine.burgundy, bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { sp = sanguine.dark_red, undercurl = true })
+      vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { sp = sanguine.gold, undercurl = true })
+      vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { sp = sanguine.rose_gold, undercurl = true })
+      vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { sp = sanguine.burgundy, undercurl = true })
+
+      -- LSP UI Elements
+      vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = sanguine.burgundy, bg = 'none' })
+      vim.api.nvim_set_hl(0, 'LspReferenceText', { bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'LspReferenceRead', { bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'LspReferenceWrite', { bg = sanguine.darker_maroon })
+
+      -- PHASE 2: High Priority UI Elements
+
+      -- Which-Key (Keybinding Popup)
+      vim.api.nvim_set_hl(0, 'WhichKey', { fg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'WhichKeyGroup', { fg = sanguine.maroon })
+      vim.api.nvim_set_hl(0, 'WhichKeyDesc', { fg = sanguine.fg })
+      vim.api.nvim_set_hl(0, 'WhichKeyValue', { fg = sanguine.burgundy })
+      vim.api.nvim_set_hl(0, 'WhichKeySeparator', { fg = sanguine.dark_red })
+      vim.api.nvim_set_hl(0, 'WhichKeyFloat', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'WhichKeyBorder', { fg = sanguine.maroon, bg = 'none' })
+
+      -- Search and Selection
+      vim.api.nvim_set_hl(0, 'Search', { fg = sanguine.gold, bg = sanguine.darker_maroon })
+      vim.api.nvim_set_hl(0, 'IncSearch', { fg = sanguine.bg, bg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'CurSearch', { fg = sanguine.bg, bg = sanguine.rose_gold, bold = true })
+      vim.api.nvim_set_hl(0, 'Visual', { bg = sanguine.darker_burgundy })
+      vim.api.nvim_set_hl(0, 'VisualNOS', { bg = sanguine.darker_burgundy })
+      vim.api.nvim_set_hl(0, 'MatchParen', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
+
+      -- GitSigns
+      vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = sanguine.muted_gold })
+      vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = sanguine.burgundy })
+      vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = sanguine.dark_red })
+
+      -- Borders and Floating Windows
+      vim.api.nvim_set_hl(0, 'FloatBorder', { fg = sanguine.maroon, bg = 'none' })
+      vim.api.nvim_set_hl(0, 'FloatTitle', { fg = sanguine.gold, bg = 'none', bold = true })
+      vim.api.nvim_set_hl(0, 'WinSeparator', { fg = sanguine.burgundy, bg = 'none' })
+      vim.api.nvim_set_hl(0, 'VertSplit', { fg = sanguine.burgundy, bg = 'none' })
+
+      -- Popup Menus
+      vim.api.nvim_set_hl(0, 'Pmenu', { fg = sanguine.fg, bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'PmenuSel', { fg = sanguine.fg, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'PmenuMatch', { fg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'PmenuMatchSel', { fg = sanguine.gold, bg = sanguine.darker_maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'PmenuBorder', { fg = sanguine.maroon, bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'PmenuSbar', { bg = sanguine.darker_burgundy })
+      vim.api.nvim_set_hl(0, 'PmenuThumb', { bg = sanguine.burgundy })
+
+      -- PHASE 3: Medium Priority UI Elements
+
+      -- Cursor and Lines
+      vim.api.nvim_set_hl(0, 'CursorLine', { bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'CursorColumn', { bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'LineNr', { fg = sanguine.darker_burgundy })
+
+      -- Diff Mode
+      vim.api.nvim_set_hl(0, 'DiffAdd', { bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'DiffChange', { bg = sanguine.darker_burgundy })
+      vim.api.nvim_set_hl(0, 'DiffDelete', { fg = sanguine.dark_red, bg = sanguine.very_dark_red })
+      vim.api.nvim_set_hl(0, 'DiffText', { bg = sanguine.darker_maroon, bold = true })
+
+      -- Messages
+      vim.api.nvim_set_hl(0, 'ErrorMsg', { fg = sanguine.dark_red, bold = true })
+      vim.api.nvim_set_hl(0, 'WarningMsg', { fg = sanguine.gold, bold = true })
+      vim.api.nvim_set_hl(0, 'MoreMsg', { fg = sanguine.maroon })
+      vim.api.nvim_set_hl(0, 'Question', { fg = sanguine.gold })
+
+      -- General UI
+      vim.api.nvim_set_hl(0, 'Directory', { fg = sanguine.gold })
+      vim.api.nvim_set_hl(0, 'Title', { fg = sanguine.maroon, bold = true })
+      vim.api.nvim_set_hl(0, 'Comment', { fg = sanguine.burgundy })
+      vim.api.nvim_set_hl(0, 'NonText', { fg = sanguine.darker_burgundy })
+      vim.api.nvim_set_hl(0, 'SpecialKey', { fg = sanguine.burgundy })
+      vim.api.nvim_set_hl(0, 'Whitespace', { fg = sanguine.darker_burgundy })
+
+      -- Todo Comments (if using todo-comments.nvim)
+      vim.api.nvim_set_hl(0, 'Todo', { fg = sanguine.bg, bg = sanguine.gold, bold = true })
     end,
   },
 
